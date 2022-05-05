@@ -26,8 +26,8 @@ public class DatabaseLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         listHolders.addAll(Arrays.asList(
-                new AccountHolder("12345678910", "Oliver",new Account(Long.parseLong("1"),Double.parseDouble("10.50"))),
-                new AccountHolder("22345678910", "Aurora",new Account(Long.parseLong("2"),Double.parseDouble("20.40")))
+                new AccountHolder(1,"12345678910", "Oliver",new Account(Long.parseLong("1"),Double.parseDouble("10.50"))),
+                new AccountHolder(2,"22345678910", "Aurora",new Account(Long.parseLong("2"),Double.parseDouble("20.40")))
 
         ));
         accountHolderRepository.saveAll(listHolders);

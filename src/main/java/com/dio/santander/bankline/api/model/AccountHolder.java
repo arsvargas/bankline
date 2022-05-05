@@ -24,6 +24,13 @@ public class AccountHolder {
         this.account = account;
     }
 
+    public AccountHolder(Integer id, String cpf, String name, Account account) {
+        this.id = id;
+        this.cpf = cpf;
+        this.name = name;
+        this.account = account;
+    }
+
     public AccountHolder() {
 
     }
