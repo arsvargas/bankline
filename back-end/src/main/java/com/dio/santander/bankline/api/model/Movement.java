@@ -1,17 +1,22 @@
 package com.dio.santander.bankline.api.model;
 
 import com.dio.santander.bankline.api.constant.MovementEnum;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+
 @Entity
 public class Movement {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateTime;
+
     private String description;
     private Double value;
 
