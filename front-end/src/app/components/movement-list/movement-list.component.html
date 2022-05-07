@@ -1,0 +1,63 @@
+<!--<div class="container">
+
+<a  class="btn btn-outline-primary btn-sm" routerLink="/movement-new">New Movements</a>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date Time</th>
+      <th scope="col">Description</th>
+      <th scope="col">Value</th>
+      <th scope="col">Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of movements; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ item.dateTime | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+      <td>{{ item.description }}</td>
+      <td [ngStyle]="{'color':item.type === 'REVENUE' ? 'blue' : 'red'}"> {{ item.value | currency:'BRL' }}</td>
+      <td>{{ item.type }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-6">Movimentações</h1>
+    <p class="lead-1">List of movements by account holders</p>
+    <hr class="my-2">
+    <div class="input-group">
+      <select  id="iAccountHolder" [(ngModel)]="accountHolder" class="form-select">
+        <option *ngFor="let holder of accountHolders" [ngValue]="holder" >{{holder.name}}</option>
+      </select>
+    <button class="btn btn-outline-secondary me-md-2 btn-sm" type="button" (click)="listMovements()">Buscar</button>
+    <a class="btn btn-outline-primary btn-sm" routerLink="/movement-new">New Movement</a>
+    <a class="btn btn-outline-primary btn-sm" routerLink="/accountholder">Account holder</a>
+  </div>
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date Time</th>
+      <th scope="col">Description</th>
+      <th scope="col">Value</th>
+      <th scope="col">Type</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of movements; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ item.dateTime | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+      <td>{{ item.description }}</td>
+      <td [ngStyle]="{'color':item.type === 'REVENUE' ? 'blue' : 'red'}">{{ item.value | currency:'BRL' }}</td>
+      <td>{{ item.type }}</td>
+
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

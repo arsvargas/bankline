@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-6">Account Holders</h1>
+    <p class="lead-1">Account holder registration</p>
+    <hr class="my-2">
+  </div>
+  <div class="row g-2">
+    <div class="col-md-3">
+      <input  class="form-control" id="iCpf" [(ngModel)]="cpf"  placeholder="CPF">
+    </div>
+    <div class="col-5">
+      <input type="text"  class="form-control" id="iName" [(ngModel)]="name" placeholder="Name of account holder">
+    </div>
+    <div class="col-3">
+    <div class="d-grid gap-2 d-md-flex ">
+        <button class="btn btn-outline-primary me-md-2" type="button" (click)="save()" >Save</button>
+        <a routerLink="/movements" class="btn btn-outline-danger">Back</a>
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <div *ngFor="let item of accountholders; index as i" class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{item.name}}</h5>
+      <p class="card-text">Account N° {{item.account.number}}</p>
+      <p class="card-text">Balance {{item.account.balance | currency:'BRL'}}</p>
+    </div>
+  </div>
+</div>

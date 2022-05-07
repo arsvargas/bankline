@@ -1,0 +1,40 @@
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-6">Movement</h1>
+        <p class="lead-1">Inclusion of a new Movement</p>
+        <hr class="my-2">
+        
+        
+            
+            <div class="col-12">
+              <label for="iAccountHolder" class="form-label">Account Holder</label>
+              <select id="iAccountHolder" [(ngModel)]="accountHolder" class="form-select">
+                 <option *ngFor="let holder of accountHolder" [ngValue]="holder">{{holder.name}}</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="iDescription" class="form-label">Description</label>
+              <input type="text" [(ngModel)]="description" class="form-control" id="iDescription" placeholder="Enter a description">
+            </div>
+            <div class="col-12">
+              <label for="iType" class="form-label">Type Movements</label>
+              <select id="iType" [(ngModel)]="type" class="form-select">
+                <option selected>REVENUE</option>
+                <option>EXPENSE</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="iValue" class="form-label">R$ Value</label>
+              <input [(ngModel)]="value" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" type="text" class="form-control" id="iValue">
+            </div>
+            <div class="d-grid gap-2 d-md-flex ">
+                <button class="btn btn-outline-primary me-md-2" (click)="save()" type="button">Confirm</button>
+                <a routerLink="/movements" class="btn btn-outline-secondary">Cancel</a>
+              </div>
+         
+      </div>
+
+</div>
+
+
